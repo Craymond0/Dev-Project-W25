@@ -1,0 +1,32 @@
+{
+  "version": "0.1.0",
+  "name": "umich_predictions",
+  "instructions": [
+    {
+      "name": "createPrediction",
+      "accounts": [
+        { "name": "prediction", "isMut": true, "isSigner": true },
+        { "name": "creator", "isMut": true, "isSigner": true },
+        { "name": "systemProgram", "isMut": false, "isSigner": false }
+      ],
+      "args": [
+        { "name": "question", "type": "string" }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "Prediction",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          { "name": "question", "type": "string" },
+          { "name": "creator", "type": "publicKey" },
+          { "name": "yesVotes", "type": "u64" },
+          { "name": "noVotes", "type": "u64" }
+        ]
+      },
+      "size": 340
+    }
+  ]
+}
